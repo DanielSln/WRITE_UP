@@ -34,6 +34,8 @@ O valor inicial dessa chave era:
 
 `nao`
 
+<img width="570" height="309" alt="Captura de tela 2026-08-10 225703" src="https://github.com/user-attachments/assets/c0bc61fd-67ab-498a-8fdb-ad51e18f5c20" />
+
 Isso indicava que a aplicação aparentemente utilizava esse valor para determinar se o usuário possuía privilégios administrativos.
 
 Como essa informação estava armazenada no lado do cliente, foi possível testar se a aplicação confiava diretamente nesse valor para realizar o controle de acesso.
@@ -47,6 +49,7 @@ Com a chave `admin` identificada, alteramos seu valor de:
 para:
 
 `sim`
+<img width="575" height="310" alt="Captura de tela 2026-08-10 225720" src="https://github.com/user-attachments/assets/604ac570-dc1d-469f-bdbf-df3e0fe47851" />
 
 Após realizar a alteração, atualizamos a página utilizando **F5**.
 
@@ -57,6 +60,7 @@ Com o acesso administrativo obtido, foi possível visualizar a flag do desafio:
 ```text
 FLAG{C00K1E_M0NST3R_MUNCH}
 ```
+<img width="351" height="111" alt="Captura de tela 2026-08-10 225727" src="https://github.com/user-attachments/assets/1cc882af-16c7-49f0-9b1e-6764ef8c3446" />
 
 ## Conclusão
 
