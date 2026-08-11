@@ -1,5 +1,7 @@
 # Bem-vindo!
 
+> **Categoria:** Web Exploitation
+
 ## Descrição
 
 Ao acessar a página fornecida pelo desafio:
