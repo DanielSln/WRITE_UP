@@ -1,52 +1,63 @@
-# WriteUp — Desafio Brainfuck
+# Brainfuck
 
-## Descrição
+> **Categoria:** Misc
+>
 
-O desafio apresenta um conjunto de símbolos aparentemente aleatórios:
+### Introdução
 
-```text
+O desafio apresenta um conjunto de símbolos aparentemente aleatórios e informa que esse conteúdo é, na verdade, um programa funcional.
+
+O objetivo é descobrir como interpretar o código e, a partir da sua execução, obter a flag.
+
+O código fornecido pelo desafio é:
+
+```text id="8r7k2p"
 +++++++[<++++++++++>-]<.[-]>+++++++[<++++++++++>-]<++++++.[-]>++++++[<++++++++++>-]<+++++.[-]>+++++++[<++++++++++>-]<+.[-]>++++++++++++[<++++++++++>-]<+++.[-]>+++++++++[<++++++++++>-]<+++++++++.[-]>++++[<++++++++++>-]<++++++++.[-]>++++++++++[<++++++++++>-]<.[-]>++++[<++++++++++>-]<+++++++++.[-]>++++++++++[<++++++++++>-]<+++.[-]>++++[<++++++++++>-]<++++++++.[-]>+++++++++[<++++++++++>-]<+++++.[-]>+++++[<++++++++++>-]<+.[-]>+++++++++++[<++++++++++>-]<+++++.[-]>++++[<++++++++++>-]<++++++++.[-]>+++++++++++[<++++++++++>-]<++++++.[-]>+++++[<++++++++++>-]<+.[-]>+++++++++++[<++++++++++>-]<++++.[-]>++++[<++++++++++>-]<+++++++++.[-]>+++++++++[<++++++++++>-]<+++++++++.[-]>++++[<++++++++++>-]<++++++++.[-]>++++++++++++[<++++++++++>-]<+++++.
 ```
 
-A descrição informa que esse conjunto de símbolos é um programa funcional e que é necessário descobrir como interpretá-lo.
+### Análise Inicial
 
-## Identificando a linguagem
+Ao observar o código, é possível perceber que ele é composto praticamente apenas por símbolos como `+`, `-`, `<`, `>`, `[` , `]` e `.`.
 
-Analisando os caracteres utilizados no código, é possível perceber a presença dos principais comandos da linguagem **Brainfuck**:
+A princípio, esses caracteres não parecem representar um código convencional. Porém, essa combinação específica de símbolos é característica da linguagem de programação esotérica **Brainfuck**.
+
+Dessa forma, em vez de tentar interpretar o conteúdo manualmente, o próximo passo foi identificar a linguagem e utilizar uma ferramenta capaz de executar o programa.
+
+### Interpretação
+
+O **Brainfuck** possui apenas oito comandos básicos, cada um responsável por uma operação específica sobre a memória:
 
 * `+` — incrementa o valor da célula atual;
 * `-` — decrementa o valor da célula atual;
-* `<` — move o ponteiro uma posição para a esquerda;
-* `>` — move o ponteiro uma posição para a direita;
-* `[` e `]` — delimitam estruturas de repetição;
-* `.` — imprime o valor da célula atual como um caractere.
+* `>` — move o ponteiro para a próxima célula;
+* `<` — move o ponteiro para a célula anterior;
+* `[` — inicia um loop;
+* `]` — encerra um loop;
+* `.` — imprime o valor da célula atual como um caractere;
+* `,` — recebe um caractere de entrada.
 
-A combinação desses símbolos é uma forte indicação de que o programa está escrito em **Brainfuck**.
+Ao comparar esses comandos com o código fornecido pelo desafio, fica evidente que estamos diante de um programa escrito em Brainfuck.
 
-Após identificar a linguagem, o próximo passo foi utilizar um interpretador para executar o código.
+### Resolução
 
-![Identificação do código como Brainfuck](https://github.com/user-attachments/assets/52dfc1ba-7aa2-48a3-8760-48e2fff8a328)
-
-## Execução
-
-Para interpretar o código, utilizei o [dCode — Brainfuck Language](https://www.dcode.fr/brainfuck-language).
+Para interpretar o programa, foi utilizado o [dCode — Brainfuck Language](https://www.dcode.fr/brainfuck-language).
 
 O código fornecido pelo desafio foi inserido no interpretador e executado.
 
-Durante a execução, as operações realizadas pelo programa manipulam os valores armazenados nas células de memória. Ao encontrar o comando `.`, o valor da célula atual é convertido em um caractere e enviado para a saída.
+Durante a execução, o programa manipula os valores das células de memória utilizando os comandos da linguagem. Os comandos `[` e `]` são utilizados para realizar os loops, enquanto o comando `.` é responsável por enviar os valores calculados para a saída.
 
-Dessa forma, após a execução completa do programa, o interpretador exibiu diretamente a flag do desafio.
+Após a execução completa do programa, o interpretador exibiu diretamente a flag do desafio:
 
-![Saída do interpretador contendo a flag](https://github.com/user-attachments/assets/9be32b3e-d035-49ce-98d7-be4f307ed842)
-
-## Conclusão
-
-O desafio consistia em reconhecer que o conjunto de símbolos representava um programa escrito em **Brainfuck**.
-
-Após identificar a linguagem, foi utilizado um interpretador compatível para executar o código. A execução revelou diretamente a flag, não sendo necessária uma segunda etapa de decodificação.
-
-**Flag:**
-
-```text
+```text id="n5k1vb"
 FLAG{c0d1g0_3s0t3r1c0}
 ```
+
+### Conclusão
+
+O desafio consistia principalmente em reconhecer a linguagem utilizada pelo código.
+
+A presença dos caracteres `+`, `-`, `<`, `>`, `[` , `]` e `.` permitiu identificar o programa como **Brainfuck**. Após essa identificação, foi utilizado um interpretador para executar o código, obtendo diretamente a flag.
+
+Não foi necessária uma etapa adicional de decodificação, pois a própria execução do programa já produziu a resposta esperada.
+
+> **Flag:** `FLAG{c0d1g0_3s0t3r1c0}`
