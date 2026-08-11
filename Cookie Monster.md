@@ -28,15 +28,11 @@ Dentro das DevTools, acessamos a aba **Application**, responsável por apresenta
 
 Durante a análise, foi encontrada uma chave chamada:
 
-```text
-admin
-```
+`admin`
 
 O valor inicial dessa chave era:
 
-```text
-nao
-```
+`nao`
 
 Isso indicava que a aplicação aparentemente utilizava esse valor para determinar se o usuário possuía privilégios administrativos.
 
@@ -46,15 +42,11 @@ Como essa informação estava armazenada no lado do cliente, foi possível testa
 
 Com a chave `admin` identificada, alteramos seu valor de:
 
-```text
-nao
-```
+`nao`
 
 para:
 
-```text
-sim
-```
+`sim`
 
 Após realizar a alteração, atualizamos a página utilizando **F5**.
 
