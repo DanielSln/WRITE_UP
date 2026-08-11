@@ -35,10 +35,7 @@ Após executar o programa, o interpretador realizou todas as operações e conve
 
 A saída do programa foi diretamente a flag do desafio.
 
-```text
 <img width="339" height="134" alt="Captura de tela 2026-08-10 224410" src="https://github.com/user-attachments/assets/9be32b3e-d035-49ce-98d7-be4f307ed842" />
-
-```
 
 ## Conclusão
 
