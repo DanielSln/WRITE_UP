@@ -1,48 +1,48 @@
 # Bem-vindo!
 
 > **Categoria:** Web Exploitation
+>
 
-## Descrição
+### Introdução
 
-Ao acessar a página fornecida pelo desafio:
+O desafio consiste em analisar uma aplicação web e encontrar uma informação escondida em seu código-fonte. Para isso, será necessário observar a estrutura da página e verificar se existem informações que não são exibidas diretamente ao usuário.
 
-```text
-http://welcome.discloud.app/
-```
+> **Página do desafio:** http://welcome.discloud.app/
 
-é apresentada uma mensagem indicando que devemos analisar a página para obter a flag.
+### Análise Inicial
 
-## Análise da página
+Ao acessar a página do desafio, é apresentada uma página simples, sem nenhuma informação aparente sobre a flag.
 
-Primeiramente, acessei a página normalmente pelo navegador.
+Diante disso, uma das primeiras abordagens em desafios de **Web Exploitation** é analisar o código-fonte da página, procurando por informações ocultas, comentários ou elementos que não estejam visíveis diretamente no navegador.
 
-Em seguida, utilizei a ferramenta de **Inspecionar Elemento** (`F12`) para analisar o código HTML da página.
+Para realizar essa análise, foram utilizadas as ferramentas de desenvolvedor (**DevTools**) disponibilizadas pelo navegador.
 
-Durante a análise, procurei por elementos e comentários presentes no código-fonte. No HTML, foi possível encontrar a flag escondida dentro de um comentário.
+### Interpretação
 
-<img width="867" height="314" alt="Captura de tela 2026-08-10 225240" src="https://github.com/user-attachments/assets/1186f2e3-5122-4fbd-81f5-39e320811e07" />
+Ao inspecionar o código HTML da página, foi possível observar que existiam informações presentes no código-fonte que não eram exibidas visualmente na página.
 
+Durante a análise do HTML, foi encontrado um **comentário HTML** contendo a flag.
 
-Como comentários HTML não são exibidos diretamente na página para o usuário, a flag não aparecia visualmente, sendo necessário analisar o código da página.
+![Flag encontrada no código-fonte da página](https://github.com/user-attachments/assets/1186f2e3-5122-4fbd-81f5-39e320811e07)
 
-## Resultado
+Comentários HTML são utilizados pelos desenvolvedores para inserir anotações dentro do código e não são renderizados diretamente na página. Dessa forma, a informação presente no comentário não podia ser visualizada normalmente, sendo necessário inspecionar o código da aplicação.
 
-Após localizar o comentário no HTML, encontrei diretamente a flag do desafio:
+### Resolução
+
+Após localizar o comentário no código HTML, foi possível obter diretamente a flag do desafio:
 
 ```text
 FLAG{W3B_1NTR0DUCT10N}
 ```
 
-## Conclusão
+Não foi necessário realizar nenhuma alteração na aplicação ou explorar alguma vulnerabilidade mais complexa. A resolução consistiu apenas em analisar o código-fonte disponibilizado pelo próprio website.
 
-O objetivo do desafio era identificar uma informação escondida no código-fonte da página.
+### Conclusão
 
-A resolução consistiu em:
+Neste desafio, foi possível praticar uma técnica básica de reconhecimento em aplicações web: a análise do código-fonte da página.
 
-1. Acessar a página fornecida;
-2. Abrir as ferramentas de desenvolvedor do navegador;
-3. Inspecionar o código HTML;
-4. Localizar o comentário contendo a flag;
-5. Copiar a flag encontrada.
+Mesmo que uma informação não esteja visível para o usuário, ela pode estar presente no HTML e ser encontrada através das ferramentas de desenvolvedor do navegador.
 
-Não foi necessário realizar nenhuma exploração ou alteração na aplicação, apenas analisar o código-fonte disponibilizado pelo próprio site.
+O desafio serviu como uma introdução à análise de aplicações web e à identificação de informações expostas no lado do cliente.
+
+> **Flag:** `FLAG{W3B_1NTR0DUCT10}`
