@@ -2,6 +2,7 @@
 
 > **Categoria:** Misc
 >
+> **Autor:** M3SSAG3_MAN
 
 ### Introdução
 
@@ -11,7 +12,7 @@ O objetivo é descobrir como interpretar o código e, a partir da sua execução
 
 O código fornecido pelo desafio é:
 
-```text id="8r7k2p"
+```text
 +++++++[<++++++++++>-]<.[-]>+++++++[<++++++++++>-]<++++++.[-]>++++++[<++++++++++>-]<+++++.[-]>+++++++[<++++++++++>-]<+.[-]>++++++++++++[<++++++++++>-]<+++.[-]>+++++++++[<++++++++++>-]<+++++++++.[-]>++++[<++++++++++>-]<++++++++.[-]>++++++++++[<++++++++++>-]<.[-]>++++[<++++++++++>-]<+++++++++.[-]>++++++++++[<++++++++++>-]<+++.[-]>++++[<++++++++++>-]<++++++++.[-]>+++++++++[<++++++++++>-]<+++++.[-]>+++++[<++++++++++>-]<+.[-]>+++++++++++[<++++++++++>-]<+++++.[-]>++++[<++++++++++>-]<++++++++.[-]>+++++++++++[<++++++++++>-]<++++++.[-]>+++++[<++++++++++>-]<+.[-]>+++++++++++[<++++++++++>-]<++++.[-]>++++[<++++++++++>-]<+++++++++.[-]>+++++++++[<++++++++++>-]<+++++++++.[-]>++++[<++++++++++>-]<++++++++.[-]>++++++++++++[<++++++++++>-]<+++++.
 ```
 
@@ -36,11 +37,13 @@ O **Brainfuck** possui apenas oito comandos básicos, cada um responsável por u
 * `.` — imprime o valor da célula atual como um caractere;
 * `,` — recebe um caractere de entrada.
 
-Ao comparar esses comandos com o código fornecido pelo desafio, fica evidente que estamos diante de um programa escrito em Brainfuck.
+Ao comparar esses comandos com o código fornecido pelo desafio, fica evidente que estamos diante de um programa escrito em **Brainfuck**.
 
 ### Resolução
 
 Para interpretar o programa, foi utilizado o [dCode — Brainfuck Language](https://www.dcode.fr/brainfuck-language).
+
+<img width="441" height="216" alt="Captura de tela 2026-08-10 224359" src="https://github.com/user-attachments/assets/730a222c-a879-414b-ae5b-e3198a5f8f3d" />
 
 O código fornecido pelo desafio foi inserido no interpretador e executado.
 
@@ -48,7 +51,9 @@ Durante a execução, o programa manipula os valores das células de memória ut
 
 Após a execução completa do programa, o interpretador exibiu diretamente a flag do desafio:
 
-```text id="n5k1vb"
+<img width="339" height="134" alt="Captura de tela 2026-08-10 224410" src="https://github.com/user-attachments/assets/f29f5ec9-5b03-4ddf-b34c-1eb7e3fda7f7" />
+
+```text
 FLAG{c0d1g0_3s0t3r1c0}
 ```
 
@@ -56,7 +61,7 @@ FLAG{c0d1g0_3s0t3r1c0}
 
 O desafio consistia principalmente em reconhecer a linguagem utilizada pelo código.
 
-A presença dos caracteres `+`, `-`, `<`, `>`, `[` , `]` e `.` permitiu identificar o programa como **Brainfuck**. Após essa identificação, foi utilizado um interpretador para executar o código, obtendo diretamente a flag.
+A presença dos caracteres `+`, `-`, `<`, `>`, `[`, `]` e `.` permitiu identificar o programa como **Brainfuck**. Após essa identificação, foi utilizado um interpretador para executar o código, obtendo diretamente a flag.
 
 Não foi necessária uma etapa adicional de decodificação, pois a própria execução do programa já produziu a resposta esperada.
 
