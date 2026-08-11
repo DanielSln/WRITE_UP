@@ -1,73 +1,88 @@
 # Cookie Monster — Admin Access
 
 > **Categoria:** Web Exploitation
+>
 
-## Introdução
+### Introdução
 
-Este desafio consiste em analisar o funcionamento de uma aplicação web e identificar uma falha relacionada ao controle de acesso de usuários. O objetivo é encontrar uma forma de obter acesso à área administrativa e, consequentemente, recuperar a flag escondida na aplicação.
+O desafio consiste em analisar uma aplicação web e identificar uma possível falha no mecanismo responsável pelo controle de acesso de usuários.
 
-**Desafio:** https://monster.discloud.app/
+O objetivo é conseguir acesso à área administrativa da aplicação e, posteriormente, encontrar a flag disponibilizada pelo sistema.
 
-## Análise Inicial
+> **Página do desafio:** https://monster.discloud.app/
 
-Ao acessar o website, somos apresentados à aplicação **Cookie Monster**. Inicialmente, a página informa que o usuário não possui privilégios administrativos.
+### Análise Inicial
+
+Ao acessar a aplicação, somos apresentados ao **Cookie Monster**. Inicialmente, a página informa que o usuário atual não possui privilégios administrativos.
 
 A mensagem apresentada pela aplicação é:
 
 > `NOM NOM... Você não é admin!`
 
-A partir dessa mensagem, podemos interpretar que existe algum mecanismo responsável por determinar se o usuário possui ou não privilégios de administrador.
+A partir dessa mensagem, podemos deduzir que existe algum mecanismo utilizado pela aplicação para determinar se o usuário possui ou não privilégios administrativos.
 
-Como o desafio é relacionado à exploração de uma aplicação web, uma das primeiras coisas a serem verificadas são as informações armazenadas pelo navegador, principalmente cookies e outros dados utilizados pela aplicação para manter informações sobre o usuário.
+Como o desafio pertence à categoria **Web Exploitation**, uma das primeiras abordagens é verificar as informações armazenadas pelo navegador, como cookies e outros dados utilizados pela aplicação para manter informações relacionadas ao usuário.
 
-## Interpretação
+### Interpretação
 
-Para investigar como a aplicação determina se o usuário é administrador, utilizamos as ferramentas de desenvolvedor (**DevTools**) disponibilizadas pelo navegador.
+Para investigar como a aplicação determina se o usuário é administrador, foram utilizadas as ferramentas de desenvolvedor (**DevTools**) disponibilizadas pelo navegador.
 
-Dentro das DevTools, acessamos a aba **Application**, responsável por apresentar informações armazenadas pelo website, como cookies e outros dados relacionados à aplicação.
+Dentro das DevTools, acessamos a aba **Application**, que permite visualizar informações armazenadas pelo website, incluindo cookies e outros dados relacionados à aplicação.
 
 Durante a análise, foi encontrada uma chave chamada:
 
-`admin`
+```text
+admin
+```
 
 O valor inicial dessa chave era:
 
-`nao`
+```text
+nao
+```
 
-<img width="570" height="309" alt="Captura de tela 2026-08-10 225703" src="https://github.com/user-attachments/assets/c0bc61fd-67ab-498a-8fdb-ad51e18f5c20" />
+![Cookie admin com valor nao](https://github.com/user-attachments/assets/c0bc61fd-67ab-498a-8fdb-ad51e18f5c20)
 
-Isso indicava que a aplicação aparentemente utilizava esse valor para determinar se o usuário possuía privilégios administrativos.
+Esse comportamento indica que a aplicação aparentemente utiliza o valor dessa chave para determinar se o usuário possui privilégios administrativos.
 
-Como essa informação estava armazenada no lado do cliente, foi possível testar se a aplicação confiava diretamente nesse valor para realizar o controle de acesso.
+Como essa informação estava armazenada no lado do cliente, foi possível verificar se o sistema confiava diretamente nesse valor para realizar o controle de acesso.
 
-## Resolução
+### Resolução
 
-Com a chave `admin` identificada, alteramos seu valor de:
+Após identificar a chave `admin`, foi realizado um teste alterando o seu valor.
 
-`nao`
+O valor original:
 
-para:
+```text
+nao
+```
 
-`sim`
-<img width="575" height="310" alt="Captura de tela 2026-08-10 225720" src="https://github.com/user-attachments/assets/604ac570-dc1d-469f-bdbf-df3e0fe47851" />
+foi alterado para:
 
-Após realizar a alteração, atualizamos a página utilizando **F5**.
+```text
+sim
+```
+
+![Cookie admin alterado para sim](https://github.com/user-attachments/assets/604ac570-dc1d-469f-bdbf-df3e0fe47851)
+
+Após realizar a alteração, a página foi atualizada utilizando **F5**.
 
 Ao carregar novamente a aplicação, o sistema reconheceu o novo valor da chave `admin` e passou a considerar o usuário como administrador.
 
-Com o acesso administrativo obtido, foi possível visualizar a flag do desafio:
+Com o acesso administrativo obtido, a aplicação passou a disponibilizar a flag:
 
 ```text
 FLAG{C00K1E_M0NST3R_MUNCH}
 ```
-<img width="351" height="111" alt="Captura de tela 2026-08-10 225727" src="https://github.com/user-attachments/assets/1cc882af-16c7-49f0-9b1e-6764ef8c3446" />
 
-## Conclusão
+![Flag encontrada após obter acesso administrativo](https://github.com/user-attachments/assets/1cc882af-16c7-49f0-9b1e-6764ef8c3446)
 
-Este desafio demonstrou uma falha relacionada ao **controle de acesso baseado em informações armazenadas no lado do cliente**.
+### Conclusão
 
-A aplicação confiava em um valor controlado pelo usuário para determinar se ele possuía privilégios administrativos. Como esse valor podia ser alterado diretamente através das ferramentas de desenvolvedor do navegador, foi possível modificar o comportamento da aplicação e obter acesso administrativo.
+Neste desafio, foi possível identificar uma falha relacionada ao **controle de acesso baseado em informações armazenadas no lado do cliente**.
 
-Durante a resolução, foram utilizados principalmente os **DevTools**, através da aba **Application**, para identificar e modificar a chave `admin`.
+A aplicação confiava diretamente no valor da chave `admin` para determinar se o usuário possuía privilégios administrativos. Como esse valor podia ser alterado através das ferramentas de desenvolvedor do navegador, foi possível modificar o comportamento da aplicação e obter acesso à área administrativa.
 
-Esse tipo de vulnerabilidade demonstra a importância de não confiar em informações fornecidas ou controladas pelo cliente para decisões de autorização. Em uma aplicação segura, a permissão de administrador deve ser validada no lado do servidor, evitando que o usuário consiga simplesmente modificar um valor local e obter privilégios elevados.
+O desafio demonstra a importância de não confiar em informações controladas pelo cliente para implementar mecanismos de autenticação ou autorização.
+
+> **Flag:** `FLAG{C00K1E_M0NST3R_MUNCH}`
