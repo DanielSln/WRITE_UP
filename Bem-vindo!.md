@@ -20,6 +20,7 @@ Durante a análise, procurei por elementos e comentários presentes no código-f
 
 <img width="867" height="314" alt="Captura de tela 2026-08-10 225240" src="https://github.com/user-attachments/assets/1186f2e3-5122-4fbd-81f5-39e320811e07" />
 
+
 Como comentários HTML não são exibidos diretamente na página para o usuário, a flag não aparecia visualmente, sendo necessário analisar o código da página.
 
 ## Resultado
