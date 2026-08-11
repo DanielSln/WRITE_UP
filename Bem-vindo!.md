@@ -27,7 +27,7 @@ Como comentários HTML não são exibidos diretamente na página para o usuário
 Após localizar o comentário no HTML, encontrei diretamente a flag do desafio:
 
 ```text
-FLAG{FLAG_ENCONTRADA}
+FLAG{W3B_1NTR0DUCT10N}
 ```
 
 ## Conclusão
